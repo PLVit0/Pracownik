@@ -19,6 +19,8 @@ public abstract class Person {
         this.salary = salary;
     }
 
+    //moj tescik
+
     public void validateNameNull(String name) throws InvalidName {
         if (name == null || name.isEmpty()){
             throw new InvalidName("Name can't be null!");
