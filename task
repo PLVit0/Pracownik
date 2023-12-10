@@ -1,0 +1,9 @@
+Stworz klase Pracownik (imie, nazwisko, pensja) i Firma (nazwa) *-*
+przetestuj:
+- czy imie pracownika sie zgadza
+- czy dlugosc nazwy firmy sie zgadza
+- czy pensja pracownika sie zgadza (delta!)
+- czy licznosc asocjacji sie zgadza
+- czy licznosc "ekstensji" sie zgadza*
+- czy pensja wyliczalna dla pracownikow sie zgadza
+- czy pensja ktora wyplaca firma wszystkim pracownikom sie zgadza
