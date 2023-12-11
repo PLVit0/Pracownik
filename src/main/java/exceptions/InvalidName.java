@@ -1,4 +1,4 @@
-package task.Person;
+package exceptions;
 
 public class InvalidName extends Exception{
     public InvalidName() {

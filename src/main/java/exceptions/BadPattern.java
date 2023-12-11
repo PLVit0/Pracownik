@@ -1,4 +1,4 @@
-package task.Person;
+package exceptions;
 
 public class BadPattern extends Exception {
     public BadPattern() {

@@ -1,4 +1,4 @@
-package task.Person;
+package exceptions;
 
 public class WrongValue extends Exception{
     public WrongValue() {
