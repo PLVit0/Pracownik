@@ -30,7 +30,8 @@ public class EmployeeTest {
     @Test
     public void initialCompanyState(){
         assertEquals(0, employees.get(0).getCompanies().size());
-    }@Test
+    }
+    @Test
     public void shouldReturnIncorrectInitialCompanyState(){
         assertNotEquals(1, employees.get(0).getCompanies().size());
     }
