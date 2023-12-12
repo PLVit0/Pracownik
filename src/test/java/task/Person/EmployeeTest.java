@@ -30,8 +30,15 @@ public class EmployeeTest {
     @Test
     public void initialCompanyState(){
         assertEquals(0, employees.get(0).getCompanies().size());
+    }@Test
+    public void shouldReturnIncorrectInitialCompanyState(){
+        assertNotEquals(1, employees.get(0).getCompanies().size());
     }
 
+    @Test
+    public void shouldReturnIncorrectInitialEmployeeState(){
+        assertNotEquals(1, companies.get(0).getEmployees().size());
+    }
     @Test
     public void initialEmployeeState(){
         assertEquals(0, companies.get(0).getEmployees().size());
@@ -44,6 +51,16 @@ public class EmployeeTest {
         assertEquals(1, companies.get(0).getEmployees().size());
         assertEquals(employees.get(0), companies.get(0).getEmployees().get(0));
     }
+
+    @Test
+    public void schouldReturnIncorrectInTestEmploymentAddsEmployeeToCompany() {
+        employees.get(0).employment(companies.get(0));
+
+        assertNotEquals(2, companies.get(0).getEmployees().size());
+        assertEquals(employees.get(0), companies.get(0).getEmployees().get(0));
+    }
+
+
 
 
 }
