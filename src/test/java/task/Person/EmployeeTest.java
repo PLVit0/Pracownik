@@ -28,7 +28,7 @@ public class EmployeeTest {
     }
 
     @Test
-    public void initialCompanyState(){
+    public void initialCompanyStateShouldBeZero(){
         assertEquals(0, employees.get(0).getCompanies().size());
     }
     @Test
@@ -41,12 +41,12 @@ public class EmployeeTest {
         assertNotEquals(1, companies.get(0).getEmployees().size());
     }
     @Test
-    public void initialEmployeeState(){
+    public void initialEmployeeStateShouldBeZero(){
         assertEquals(0, companies.get(0).getEmployees().size());
     }
 
     @Test
-    public void testEmploymentAddsEmployeeToCompany() {
+    public void shouldEmploymentMethodAddsEmployeeToCompany() {
         employees.get(0).employment(companies.get(0));
 
         assertEquals(1, companies.get(0).getEmployees().size());
