@@ -54,7 +54,7 @@ public class EmployeeTest {
     }
 
     @Test
-    public void schouldReturnIncorrectInTestEmploymentAddsEmployeeToCompany() {
+    public void shouldReturnIncorrectInTestEmploymentAddsEmployeeToCompany() {
         employees.get(0).employment(companies.get(0));
 
         assertNotEquals(2, companies.get(0).getEmployees().size());
