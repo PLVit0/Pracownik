@@ -4,8 +4,6 @@ import exceptions.BadPattern;
 import exceptions.InvalidName;
 import service.PersonService;
 
-import java.util.regex.Pattern;
-
 public abstract class Person {
 
     private String name;

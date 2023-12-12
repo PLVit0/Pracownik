@@ -20,10 +20,13 @@ public class AssociationCounter {
     }
 
     public static boolean checkAssociations(Employee employee, Company company){
+        if (employee == null || company == null) {
+            return false;
+        }
         return countEmployeeAssociations(employee) == countCompanyAssociations(company);
     }
 
-    public static boolean checkExtension(List<Company> companies, List<Employee> employees) {
+    public static boolean checkExtension(List<Company> companies, List<Employee> employees) { // Czy to na pewno zlicza ekstensje?
         int totalCompanyEmployees = 0;
         for (Company company : companies) {
             totalCompanyEmployees += company.getEmployees().size();

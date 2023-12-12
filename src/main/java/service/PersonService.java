@@ -25,7 +25,7 @@ public class PersonService {
         }
     }
     public static void validateSurnamePattern(String surname) throws BadPattern {
-        Pattern pattern = Pattern.compile("^[A-Z][a-z]{2,}(?: ?-?[A-Z][a-z]{2,})?$");
+        Pattern pattern = Pattern.compile("^[A-Z][a-z]{2,}$");
         if (!pattern.matcher(surname).matches()){
             throw new BadPattern("Bad pattern");
         }

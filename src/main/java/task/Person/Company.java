@@ -13,10 +13,14 @@ public class Company {
     public Company(CompanyE company) {
         CompanyService.isValidCompanyName(company);
         this.company = company;
+
     }
 
     public void addEmployee(Employee employee) {
-        employees.add(employee);
+        if (!(employee == null)) {
+            employees.add(employee);
+        }
+
     }
 
     public CompanyE getCompany() {

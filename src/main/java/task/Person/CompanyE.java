@@ -2,5 +2,5 @@ package task.Person;
 
 public enum CompanyE {
 
-    Bmw, Mercedes, Dacia, Renault, Audi
+    Bmw, Mercedes, Koenigsegg, Renault, Audi
 }

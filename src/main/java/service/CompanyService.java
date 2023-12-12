@@ -9,7 +9,7 @@ public class CompanyService {
 
     public static boolean isValidCompanyName(CompanyE company) {
         String companyName = company.name();
-        return companyName.length() >= 3 && companyName.length() <= 10;
+        return companyName.length() >= 3 && companyName.length() <= 9;
     }
     public static int getTotalSalaries(Company company) {
         int sum = 0;
