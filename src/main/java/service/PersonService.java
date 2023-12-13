@@ -21,7 +21,7 @@ public class PersonService {
     }
     public static void validateSurnameNull(String surname) throws InvalidName{
         if (surname == null || surname.isEmpty()){
-            throw new InvalidName("Name can't be null!");
+            throw new InvalidName("Surname can't be null!");
         }
     }
     public static void validateSurnamePattern(String surname) throws BadPattern {
