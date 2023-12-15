@@ -5,6 +5,7 @@ import exceptions.InvalidName;
 import exceptions.WrongValue;
 import org.junit.Before;
 import org.junit.Test;
+import service.CompanyService;
 
 import static org.junit.Assert.*;
 
@@ -34,6 +35,15 @@ public class CompanyTest {
         assertTrue(company.getEmployees().isEmpty());
     }
 
+    @Test
+    public void isValidatingRightCompanyName() {
+        assertTrue(company.isValidCompanyName(CompanyE.Bmw));
+    }
 
-    // GETTEROW I SETTEROW NIE TESTUJE
+    @Test
+    public void isValidatingWrongCompanyName() {
+        assertFalse(company.isValidCompanyName(CompanyE.Koenigsegg));
+    }
+
+
 }

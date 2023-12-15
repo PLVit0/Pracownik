@@ -14,13 +14,19 @@ public class Employee extends Person {
 
     public Employee(String name, String surname, int salary) throws InvalidName, WrongValue, BadPattern {
         super(name, surname);
-        EmployeeService.validateSalary(salary);
+        validateSalary(salary);
         this.salary = salary;
     }
 
     public void employment(Company company) {
         companies.add(company);
         company.addEmployee(this);
+    }
+
+    public static void validateSalary(int salary) throws WrongValue {
+        if (salary < 0){
+            throw new WrongValue("Salary can't be lower than 0!");
+        }
     }
 
     public List<Company> getCompanies() {

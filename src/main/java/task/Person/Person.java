@@ -4,24 +4,47 @@ import exceptions.BadPattern;
 import exceptions.InvalidName;
 import service.PersonService;
 
+import java.util.regex.Pattern;
+
 public abstract class Person {
 
     private String name;
     private String surname;
 
     public Person(String name, String surname) throws InvalidName, BadPattern {
-        PersonService.validateNameNull(name);
-        PersonService.validateNamePattern(name);
-        PersonService.validateSurnameNull(surname);
-        PersonService.validateSurnamePattern(surname);
+        validateNameNull(name);
+        validateNamePattern(name);
+        validateSurnameNull(surname);
+        validateSurnamePattern(surname);
 
         this.name = name;
         this.surname = surname;
 
     }
 
-    //moj tescik
+    public void validateNameNull(String name) throws InvalidName {
+        if (name == null || name.isEmpty()){
+            throw new InvalidName("Name can't be null!");
+        }
+    }
 
+    public  void validateNamePattern(String name) throws BadPattern {
+        Pattern pattern = Pattern.compile("^[A-Z][a-z]{2,}$");
+        if (!pattern.matcher(name).matches()){
+            throw new BadPattern("Bad pattern");
+        }
+    }
+    public  void validateSurnameNull(String surname) throws InvalidName{
+        if (surname == null || surname.isEmpty()){
+            throw new InvalidName("Surname can't be null!");
+        }
+    }
+    public  void validateSurnamePattern(String surname) throws BadPattern {
+        Pattern pattern = Pattern.compile("^[A-Z][a-z]{2,}$");
+        if (!pattern.matcher(surname).matches()){
+            throw new BadPattern("Bad pattern");
+        }
+    }
 
     public String getName() {
         return name;

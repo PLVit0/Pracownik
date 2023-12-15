@@ -11,9 +11,14 @@ public class Company {
     private List<Employee> employees = new ArrayList<>();
 
     public Company(CompanyE company) {
-        CompanyService.isValidCompanyName(company);
+       isValidCompanyName(company);
         this.company = company;
 
+    }
+
+    public static boolean isValidCompanyName(CompanyE company) {
+        String companyName = company.name();
+        return companyName.length() >= 3 && companyName.length() <= 9;
     }
 
     public void addEmployee(Employee employee) {
