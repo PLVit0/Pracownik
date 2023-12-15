@@ -12,17 +12,14 @@ import task.Person.Employee;
 import static org.junit.Assert.*;
 
 public class CompanyServiceTest {
-
-    private CompanyE rightCompany;
-    private CompanyE wrongCompany;
+    private CompanyE companyName;
     private Company company;
     private Employee employee1;
     private Employee employee2;
 
     @Before
     public void init() throws InvalidName, WrongValue, BadPattern {
-        rightCompany = CompanyE.Bmw;
-        wrongCompany = CompanyE.Koenigsegg;
+        companyName = CompanyE.Bmw;
         company = new Company(CompanyE.Audi);
          employee1 = new Employee("Kamil", "Zako", 50000);
          employee2 = new Employee("Wit", "Old", 30000);
@@ -30,12 +27,13 @@ public class CompanyServiceTest {
 
     @Test
     public void isValidatingRightCompanyName() {
-        assertTrue(CompanyService.isValidCompanyName(rightCompany));
+        assertTrue(CompanyService.isValidCompanyName(companyName));
     }
 
     @Test
     public void isValidatingWrongCompanyName() {
-        assertFalse(CompanyService.isValidCompanyName(wrongCompany));
+        companyName = CompanyE.Koenigsegg;
+        assertFalse(CompanyService.isValidCompanyName(companyName));
     }
 
     @Test
