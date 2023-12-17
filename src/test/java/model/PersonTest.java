@@ -1,12 +1,9 @@
-package task.Person;
+package model;
 
 import exceptions.BadPattern;
 import exceptions.InvalidName;
 import org.junit.Before;
 import org.junit.Test;
-import service.PersonService;
-
-import static org.junit.Assert.*;
 
 public class PersonTest {
 

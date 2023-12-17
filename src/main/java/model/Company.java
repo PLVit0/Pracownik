@@ -1,6 +1,4 @@
-package task.Person;
-
-import service.CompanyService;
+package model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +14,7 @@ public class Company {
 
     }
 
-    public static boolean isValidCompanyName(CompanyE company) {
+    public boolean isValidCompanyName(CompanyE company) {
         String companyName = company.name();
         return companyName.length() >= 3 && companyName.length() <= 9;
     }

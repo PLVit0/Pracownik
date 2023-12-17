@@ -1,11 +1,10 @@
-package task.Person;
+package model;
 
 import exceptions.BadPattern;
 import exceptions.InvalidName;
 import exceptions.WrongValue;
 import org.junit.Before;
 import org.junit.Test;
-import service.CompanyService;
 
 import static org.junit.Assert.*;
 
@@ -15,7 +14,7 @@ public class CompanyTest {
     private Employee employee;
     @Before
     public void init() throws InvalidName, WrongValue, BadPattern {
-        company = new Company(CompanyE.Bmw);
+        company = new Company(CompanyE.BMW);
         employee = new Employee("Wit", "Old", 30000);
     }
 
@@ -37,12 +36,12 @@ public class CompanyTest {
 
     @Test
     public void isValidatingRightCompanyName() {
-        assertTrue(company.isValidCompanyName(CompanyE.Bmw));
+        assertTrue(company.isValidCompanyName(CompanyE.BMW));
     }
 
     @Test
     public void isValidatingWrongCompanyName() {
-        assertFalse(company.isValidCompanyName(CompanyE.Koenigsegg));
+        assertFalse(company.isValidCompanyName(CompanyE.KOENIGSEGG));
     }
 
 

@@ -1,4 +1,4 @@
-package task.Person;
+package model;
 
 import exceptions.BadPattern;
 import exceptions.InvalidName;

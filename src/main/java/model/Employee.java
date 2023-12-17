@@ -1,9 +1,8 @@
-package task.Person;
+package model;
 
 import exceptions.BadPattern;
 import exceptions.InvalidName;
 import exceptions.WrongValue;
-import service.EmployeeService;
 
 import java.util.ArrayList;
 import java.util.List;
