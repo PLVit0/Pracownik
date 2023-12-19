@@ -5,16 +5,16 @@ import java.util.List;
 
 public class Company {
 
-    private CompanyE company;
+    private Companies company;
     private List<Employee> employees = new ArrayList<>();
 
-    public Company(CompanyE company) {
-       isValidCompanyName(company);
+    public Company(Companies company) {
+        isValidCompanyName(company);
         this.company = company;
 
     }
 
-    public boolean isValidCompanyName(CompanyE company) {
+    public boolean isValidCompanyName(Companies company) {
         String companyName = company.name();
         return companyName.length() >= 3 && companyName.length() <= 9;
     }
@@ -25,12 +25,18 @@ public class Company {
         }
 
     }
+    public void removeEmployee(Employee employee) {
+        if (!(employee == null)) {
+            employees.remove(employee);
+        }
 
-    public CompanyE getCompany() {
+    }
+
+    public Companies getCompany() {
         return company;
     }
 
-    public void setCompany(CompanyE company) {
+    public void setCompany(Companies company) {
         this.company = company;
     }
 

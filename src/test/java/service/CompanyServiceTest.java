@@ -3,16 +3,17 @@ package service;
 import exceptions.BadPattern;
 import exceptions.InvalidName;
 import exceptions.WrongValue;
+import model.Employee;
+import model.EmployeePosition;
 import org.junit.Before;
 import org.junit.Test;
 import model.Company;
-import model.CompanyE;
-import model.Employee;
+import model.Companies;
 
 import static org.junit.Assert.*;
 
 public class CompanyServiceTest {
-    private CompanyE companyName;
+    private Companies companyName;
     private Company company;
     private Employee employee1;
     private Employee employee2;
@@ -20,11 +21,11 @@ public class CompanyServiceTest {
 
     @Before
     public void init() throws InvalidName, WrongValue, BadPattern {
-        companyName = CompanyE.BMW;
-        company = new Company(CompanyE.AUDI);
-         employee1 = new Employee("Kamil", "Zako", 50000);
-         employee2 = new Employee("Wit", "Old", 30000);
-         companyService = new CompanyService();
+        companyName = Companies.BMW;
+        company = new Company(Companies.AUDI);
+        employee1 = new Employee("Kamil", "Zako", EmployeePosition.DIRECTOR);
+        employee2 = new Employee("Wit", "Old", EmployeePosition.MANAGER);
+        companyService = new CompanyService();
     }
 
     @Test
@@ -34,7 +35,7 @@ public class CompanyServiceTest {
 
     @Test
     public void isValidatingWrongCompanyName() {
-        companyName = CompanyE.KOENIGSEGG;
+        companyName = Companies.KOENIGSEGG;
         assertFalse(company.isValidCompanyName(companyName));
     }
 
@@ -49,6 +50,6 @@ public class CompanyServiceTest {
         company.addEmployee(employee1);
         company.addEmployee(employee2);
 
-        assertEquals(80000, companyService.getTotalSalaries(company));
+        assertEquals(35000, companyService.getTotalSalaries(company));
     }
 }

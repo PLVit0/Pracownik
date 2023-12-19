@@ -15,23 +15,20 @@ public class EmployeeTest {
 
     private List<Employee> employees;
     private List<Company> companies;
-    private Employee employee;
     private Employee employee1;
     private Employee employee2;
     private Company company1;
     private Company company2;
 
 
-
     @Before
     public void init() throws InvalidName, WrongValue, BadPattern {
         employees = new ArrayList<>();
         companies = new ArrayList<>();
-//        employee = new Employee("Kamil", "Zako", 50000);
-        employee1 = new Employee("Wit", "Old", 30000);
-        employee2 = new Employee("Kamil", "Zako", 50000);
-        company1 = new Company(CompanyE.BMW);
-        company2 = new Company(CompanyE.AUDI);
+        employee1 = new Employee("Wit", "Old", EmployeePosition.MANAGER);
+        employee2 = new Employee("Kamil", "Zako", EmployeePosition.DIRECTOR);
+        company1 = new Company(Companies.BMW);
+        company2 = new Company(Companies.AUDI);
 
         employees.add(employee1);
         employees.add(employee2);
@@ -48,21 +45,24 @@ public class EmployeeTest {
     public void isValidateingWrongSalaryCorrectly() throws WrongValue {
         employee1.validateSalary(-1000);
     }
+
     @Test
-    public void initialCompanyStateShouldBeZero(){
+    public void initialCompanyStateShouldBeZero() {
         assertEquals(0, employees.get(0).getCompanies().size());
     }
+
     @Test
-    public void shouldReturnIncorrectInitialCompanyState(){
+    public void shouldReturnIncorrectInitialCompanyState() {
         assertNotEquals(1, employees.get(0).getCompanies().size());
     }
 
     @Test
-    public void shouldReturnIncorrectInitialEmployeeState(){
+    public void shouldReturnIncorrectInitialEmployeeState() {
         assertNotEquals(1, companies.get(0).getEmployees().size());
     }
+
     @Test
-    public void initialEmployeeStateShouldBeZero(){
+    public void initialEmployeeStateShouldBeZero() {
         assertEquals(0, companies.get(0).getEmployees().size());
     }
 
@@ -90,6 +90,7 @@ public class EmployeeTest {
 
         assertEquals(2, employee1.getCompanies().size());
     }
+
     @Test
     public void didCorrectlySumCompanyAssociations() {
         company1.addEmployee(employee1);
@@ -99,6 +100,7 @@ public class EmployeeTest {
         assertEquals(1, company1.getEmployees().size());
         assertEquals(2, company2.getEmployees().size());
     }
+
     @Test
     public void didCorrectlyCountAndCompareAssociation() {
         employee1.employment(company1);
@@ -115,4 +117,31 @@ public class EmployeeTest {
         // DO NAPISANIA
     }
 
+    @Test
+    public void shouldCompareTwoDifferentSalaries() {
+        assertNotEquals(employee1.getSalary(), employee2.getSalary(), 0.1);
+    }
+
+    @Test
+    public void shouldCompareTwoSameSalaries() {
+        double salary = 15000;
+        assertEquals(employee1.getSalary(), salary, 0.1);
+    }
+
+    @Test
+    public void shouldChangeEmployeeSalary() throws WrongValue {
+        double newSalary = 18000;
+        employee1.setSalary(newSalary);
+        assertEquals(newSalary, employee1.getSalary(), 0.1);
+    }
+    @Test(expected = WrongValue.class)
+    public void shouldThrowExceptionForNegativeSalary() throws WrongValue {
+        employee1.setSalary(-5000);
+    }
+
+    @Test
+    public void didAssignCorrectPositionAndSalary() {
+        assertEquals(EmployeePosition.MANAGER, employee1.getPosition());
+        assertEquals(15000, employee1.getSalary(), 0.1);
+    }
 }

@@ -7,12 +7,11 @@ import org.junit.Test;
 
 public class PersonTest {
 
-
-    private ConcretePerson person;
+    private Employee person;
 
     @Before
     public void init() throws InvalidName, BadPattern {
-        person = new ConcretePerson("Kamil", "Zako");
+        person = new Employee("Kamil", "Zako");
     }
 
     @Test(expected = InvalidName.class)

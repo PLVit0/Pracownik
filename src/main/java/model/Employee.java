@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Employee extends Person {
-    private int salary;
+    private double salary;
+    private EmployeePosition position;
     private List<Company> companies = new ArrayList<>();
 
-    public Employee(String name, String surname, int salary) throws InvalidName, WrongValue, BadPattern {
+    public Employee(String name, String surname) throws InvalidName, BadPattern {
+        super(name, surname);
+    }
+
+    public Employee(String name, String surname, EmployeePosition position) throws InvalidName, WrongValue, BadPattern {
         super(name, surname);
         validateSalary(salary);
-        this.salary = salary;
+        this.salary = position.getSalary();
+        this.position = position;
+
     }
 
     public void employment(Company company) {
@@ -22,8 +29,8 @@ public class Employee extends Person {
         company.addEmployee(this);
     }
 
-    public void validateSalary(int salary) throws WrongValue {
-        if (salary < 0){
+    public void validateSalary(double salary) throws WrongValue {
+        if (salary < 0) {
             throw new WrongValue("Salary can't be lower than 0!");
         }
     }
@@ -36,16 +43,20 @@ public class Employee extends Person {
         this.companies = companies;
     }
 
-    public int getSalary() {
+    public double getSalary() {
         return salary;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(double salary) throws WrongValue {
+        validateSalary(salary);
         this.salary = salary;
     }
 
+    public EmployeePosition getPosition() {
+        return position;
+    }
 
-
-
-
+    public void setPosition(EmployeePosition position) {
+        this.position = position;
+    }
 }

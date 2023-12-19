@@ -12,10 +12,11 @@ public class CompanyTest {
 
     private Company company;
     private Employee employee;
+
     @Before
     public void init() throws InvalidName, WrongValue, BadPattern {
-        company = new Company(CompanyE.BMW);
-        employee = new Employee("Wit", "Old", 30000);
+        company = new Company(Companies.BMW);
+        employee = new Employee("Wit", "Old", EmployeePosition.MANAGER);
     }
 
     @Test
@@ -23,7 +24,8 @@ public class CompanyTest {
         company.addEmployee(employee);
 
         assertEquals(1, company.getEmployees().size());
-        assertEquals(employee, company.getEmployees().get(0));
+//        assertEquals(employee, company.getEmployees().get(0));
+        assertTrue(company.getEmployees().contains(employee));
     }
 
     @Test
@@ -33,15 +35,24 @@ public class CompanyTest {
         assertEquals(0, company.getEmployees().size());
         assertTrue(company.getEmployees().isEmpty());
     }
+    @Test
+    public void didEmployeeRemovedCorrectly() {
+        company.removeEmployee(employee);
+        company.removeEmployee(employee);
+
+        assertEquals(0, company.getEmployees().size());
+//        assertEquals(employee, company.getEmployees().get(0));
+        assertFalse(company.getEmployees().contains(employee));
+    }
 
     @Test
     public void isValidatingRightCompanyName() {
-        assertTrue(company.isValidCompanyName(CompanyE.BMW));
+        assertTrue(company.isValidCompanyName(Companies.BMW));
     }
 
     @Test
     public void isValidatingWrongCompanyName() {
-        assertFalse(company.isValidCompanyName(CompanyE.KOENIGSEGG));
+        assertFalse(company.isValidCompanyName(Companies.KOENIGSEGG));
     }
 
 

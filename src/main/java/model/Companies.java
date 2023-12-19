@@ -1,6 +1,6 @@
 package model;
 
-public enum CompanyE {
+public enum Companies {
 
     BMW, MERCEDES, KOENIGSEGG, RENAULT, AUDI
 }
