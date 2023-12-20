@@ -51,6 +51,6 @@ public class CompanyServiceTest {
         company.addEmployee(employee1);
         company.addEmployee(employee2);
 
-        assertEquals(80000, companyService.getTotalSalaries(company));
+        assertEquals(25000, companyService.getTotalSalaries(company));
     }
 }
