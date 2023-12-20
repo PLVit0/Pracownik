@@ -3,12 +3,13 @@ package service;
 import exceptions.BadPattern;
 import exceptions.InvalidName;
 import exceptions.WrongValue;
-import model.Employee;
+import model.Companies;
 import model.EmployeePosition;
 import org.junit.Before;
 import org.junit.Test;
 import model.Company;
-import model.Companies;
+
+import model.Employee;
 
 import static org.junit.Assert.*;
 
@@ -23,9 +24,9 @@ public class CompanyServiceTest {
     public void init() throws InvalidName, WrongValue, BadPattern {
         companyName = Companies.BMW;
         company = new Company(Companies.AUDI);
-        employee1 = new Employee("Kamil", "Zako", EmployeePosition.DIRECTOR);
-        employee2 = new Employee("Wit", "Old", EmployeePosition.MANAGER);
-        companyService = new CompanyService();
+         employee1 = new Employee("Kamil", "Zako", EmployeePosition.RECEPTIONIST);
+         employee2 = new Employee("Wit", "Old", EmployeePosition.DIRECTOR);
+         companyService = new CompanyService();
     }
 
     @Test
@@ -50,6 +51,6 @@ public class CompanyServiceTest {
         company.addEmployee(employee1);
         company.addEmployee(employee2);
 
-        assertEquals(35000, companyService.getTotalSalaries(company));
+        assertEquals(80000, companyService.getTotalSalaries(company));
     }
 }
