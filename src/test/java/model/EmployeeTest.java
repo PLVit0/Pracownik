@@ -114,7 +114,7 @@ public class EmployeeTest {
 
     @Test
     public void didSumAssociationsWithNoCompany() {
-        // DO NAPISANIA
+        assertEquals(0, company1.getEmployees().size());
     }
 
     @Test
