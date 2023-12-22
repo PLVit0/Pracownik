@@ -52,7 +52,8 @@ public class CompanyTest {
 
     @Test
     public void isValidatingWrongCompanyName() {
-        assertFalse(company.isValidCompanyName(Companies.KOENIGSEGG));
+        Companies wrongCompany = Companies.valueOf("KOENIGSEGG");
+        assertFalse(company.isValidCompanyName(wrongCompany));
     }
 
 
